@@ -1,6 +1,7 @@
 package graphics;
 
-import Variables.Constant;
+import variables.Constant;
+import core.MouseHandler;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,6 +11,7 @@ public class Window extends JFrame implements Runnable {
     public static boolean isRunning;
     public static int currentState;
     public Scene currentScene;
+    static MouseHandler mouseHandler = new MouseHandler();
 
     public Window(int width, int height, String TITLE) {
         setSize(width, height);
@@ -18,8 +20,10 @@ public class Window extends JFrame implements Runnable {
         setResizable(false);
         setLocationRelativeTo(null);
         setVisible(true);
+        addMouseListener(mouseHandler);
+        addMouseMotionListener(mouseHandler);
         isRunning = true;
-        setStage(0);
+        setState(0);
     }
 
     public static Window getInstance() {
@@ -29,14 +33,19 @@ public class Window extends JFrame implements Runnable {
         return Window.window;
     }
 
-    public void setStage(int stage) {
-        currentState = stage;
+    public void setState(int state) {
+        currentState = state;
         switch (currentState) {
             case 0 -> {
                 currentScene = new Menu();
+                System.out.println("Menu");
+            }
+            case 1 -> {
+                currentScene = new Game();
+                System.out.println("Game");
             }
             default -> {
-                System.out.println("Invalid stage");
+                System.out.println("Invalid state");
                 currentScene = null;
             }
         }
@@ -85,5 +94,9 @@ public class Window extends JFrame implements Runnable {
             }
         }
         this.dispose();
+    }
+
+    public static MouseHandler getMouseH() {
+        return mouseHandler;
     }
 }

@@ -1,4 +1,4 @@
-package Variables;
+package variables;
 
 public class Constant {
     public static final int SCALE = 3;
@@ -23,5 +23,5 @@ public class Constant {
 
     public static final String TITLE = "Catch Me If You Can";
     public static final int FPS = 60;
-    public static final int Tera= 1_000_000_000;
+    //public static final int Tera= 1_000_000_000;
 }

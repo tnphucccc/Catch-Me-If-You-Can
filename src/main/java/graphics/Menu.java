@@ -1,30 +1,39 @@
 package graphics;
 
+import variables.Constant;
+import core.MouseHandler;
+
 import javax.imageio.ImageIO;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
 public class Menu extends Scene {
-    private BufferedImage Menu, MenuPlayPressed, MenuExitPressed, MenuCurrentImage;
+    public Rectangle playButton;
+    private BufferedImage Menu;
+    public MouseHandler mouseH = Window.getMouseH();
     public Menu() {
         try {
-            Menu = ImageIO.read(new File("src/main/resources/Menu/Menu.png"));
-            MenuPlayPressed = ImageIO.read(new File("src/main/resources/Menu/MenuPlayPressed.png"));
-            MenuExitPressed = ImageIO.read(new File("src/main/resources/Menu/MenuExitPressed.png"));
+            Menu = ImageIO.read(new File("src/main/resources/Menu/MenuNotFinal.png"));
         } catch (Exception e) {
             e.printStackTrace();
         }
-        MenuCurrentImage = Menu;
+        playButton = new Rectangle(550, 235, 68, 77);
+        //MenuCurrentImage = Menu;
     }
 
     @Override
     public void update() {
-
+        if (mouseH.checkInteractWithRect(mouseH, playButton)) {
+            //MenuCurrentImage = MenuPlayPressed;
+            if (mouseH.isPressed) {
+                Window.getInstance().setState(1);
+            }
+        }
     }
 
     @Override
     public void draw(Graphics g) {
-        g.drawImage(MenuCurrentImage, 0, 0, null);
+        g.drawImage(Menu, 0, 0, Constant.WIDTH, Constant.HEIGHT, null);
     }
 }
