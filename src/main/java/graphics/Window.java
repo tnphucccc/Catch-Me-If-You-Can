@@ -2,6 +2,7 @@ package graphics;
 
 import variables.Constant;
 import core.MouseHandler;
+import core.KeyHandler;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,15 +12,19 @@ public class Window extends JFrame implements Runnable {
     public static boolean isRunning;
     public static int currentState;
     public Scene currentScene;
+    static KeyHandler keyH = new KeyHandler();
     static MouseHandler mouseHandler = new MouseHandler();
 
     public Window(int width, int height, String TITLE) {
         setSize(width, height);
         setTitle(TITLE);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         setResizable(false);
         setLocationRelativeTo(null);
         setVisible(true);
+
+        addKeyListener(keyH);
         addMouseListener(mouseHandler);
         addMouseMotionListener(mouseHandler);
         isRunning = true;
@@ -99,4 +104,5 @@ public class Window extends JFrame implements Runnable {
     public static MouseHandler getMouseH() {
         return mouseHandler;
     }
+    public static KeyHandler getKeyH(){return keyH;}
 }
