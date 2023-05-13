@@ -1,6 +1,7 @@
 package core;
 
 import graphics.BufferedImageLoader;
+import graphics.SpriteSheet;
 import graphics.Window;
 import variables.Constant;
 
@@ -13,6 +14,7 @@ import java.io.InputStreamReader;
 public class TileManager {
     Window window;
     Tile[] tiles;
+    SpriteSheet sheet;
     int[][] map;
     BufferedImageLoader loader = new BufferedImageLoader();
     public TileManager (Window window){
@@ -24,16 +26,19 @@ public class TileManager {
     }
 
     public void getTileImage(){
-        try{
+        try {
+            sheet = new SpriteSheet(loader.loadImage("/Tiles/tiles.png"));
             tiles[0] = new Tile();
-            tiles[0].image = loader.loadImage("/tiles/Block.png");
+            //tiles[0].image = loader.loadImage("/Tiles/Block.png");
+            tiles[0].image = sheet.crop(0,0,16,16);
 
             tiles[1] = new Tile();
-            tiles[1].image = loader.loadImage("/tiles/Brick.png");
+            //tiles[1].image = loader.loadImage("/Tiles/Brick.png");
+            tiles[1].image = sheet.crop(16,0,16,16);
 
             tiles[2] = new Tile();
-            tiles[2].image = loader.loadImage("/tiles/Ground.png");
-
+            //tiles[2].image = loader.loadImage("/Tiles/Ground.png");
+            tiles[2].image = sheet.crop(32,0,16,16);
         }
         catch (IOException e){
             e.printStackTrace();
