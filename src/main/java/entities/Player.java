@@ -3,7 +3,7 @@ package entities;
 import core.KeyHandler;
 import variables.Constant;
 import graphics.Window;
-import graphics.*;
+
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -13,6 +13,7 @@ public class Player extends Entity {
 
     public Player(){
         this.name = "player";
+      
         solidArea = new Rectangle();
         solidArea.x=8;
         solidArea.y=16;
