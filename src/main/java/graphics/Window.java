@@ -1,5 +1,6 @@
 package graphics;
 
+import core.TileManager;
 import variables.Constant;
 import core.MouseHandler;
 import core.KeyHandler;
@@ -14,6 +15,7 @@ public class Window extends JFrame implements Runnable {
     public Scene currentScene;
     static KeyHandler keyH = new KeyHandler();
     static MouseHandler mouseHandler = new MouseHandler();
+    TileManager tileM = new TileManager(this);
 
     public Window(int width, int height, String TITLE) {
         setSize(width, height);
@@ -70,7 +72,10 @@ public class Window extends JFrame implements Runnable {
 
     public void draw(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
+        tileM.draw(g2d);
         currentScene.draw(g2d);
+
+
     }
 
     @Override
