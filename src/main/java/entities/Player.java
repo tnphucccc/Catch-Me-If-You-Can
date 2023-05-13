@@ -3,16 +3,16 @@ package entities;
 import core.KeyHandler;
 import variables.Constant;
 import graphics.Window;
-
+import graphics.*;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
-public class Player extends Entity{
+public class Player extends Entity {
     KeyHandler keyH = Window.getKeyH();
 
     public Player(){
         this.name = "player";
-
         solidArea = new Rectangle();
         solidArea.x=8;
         solidArea.y=16;
@@ -30,6 +30,14 @@ public class Player extends Entity{
         x = Constant.TILE_SIZE*2;
         y = Constant.TILE_SIZE*2;
         direction="down";
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
     @Override
     public void update() {
@@ -56,5 +64,11 @@ public class Player extends Entity{
                 }
             }
         }
+    }
+
+    @Override
+    public void draw(Graphics2D g2) {
+        BufferedImage img = getEntityImage();
+        g2.drawImage(img, getX(), getY(), Constant.TILE_SIZE, Constant.TILE_SIZE, null);
     }
 }
