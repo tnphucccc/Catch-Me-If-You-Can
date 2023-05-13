@@ -29,16 +29,19 @@ public class TileManager {
         try {
             sheet = new SpriteSheet(loader.loadImage("/Tiles/tiles.png"));
             tiles[0] = new Tile();
-            //tiles[0].image = loader.loadImage("/Tiles/Block.png");
             tiles[0].image = sheet.crop(0,0,16,16);
 
             tiles[1] = new Tile();
-            //tiles[1].image = loader.loadImage("/Tiles/Brick.png");
             tiles[1].image = sheet.crop(16,0,16,16);
 
             tiles[2] = new Tile();
-            //tiles[2].image = loader.loadImage("/Tiles/Ground.png");
             tiles[2].image = sheet.crop(32,0,16,16);
+
+            tiles[3] = new Tile();
+            tiles[3].image = sheet.crop(48,0,16,16);
+
+            tiles[4] = new Tile();
+            tiles[4].image = loader.loadImage("/Tiles/Sand.png");
         }
         catch (IOException e){
             e.printStackTrace();
@@ -46,7 +49,6 @@ public class TileManager {
     }
 
     public void loadMap (String path){
-
         try{
             InputStream is = getClass().getResourceAsStream(path);
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
