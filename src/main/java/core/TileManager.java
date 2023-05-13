@@ -71,7 +71,8 @@ public class TileManager {
             }
             br.close();
         }
-        catch(Exception e){
+        catch (Exception e){
+            e.printStackTrace();
         }
     }
     public static TileManager instance = null;
