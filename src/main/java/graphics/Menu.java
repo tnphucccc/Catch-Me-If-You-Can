@@ -14,11 +14,11 @@ public class Menu extends Scene {
     public MouseHandler mouseH = Window.getMouseH();
     public Menu() {
         try {
-            Menu = ImageIO.read(new File("src/main/resources/Menu/MenuNotFinal.png"));
+            Menu = ImageIO.read(new File("src/main/resources/Menu/MenuF.png"));
         } catch (Exception e) {
             e.printStackTrace();
         }
-        playButton = new Rectangle(550, 235, 68, 77);
+        playButton = new Rectangle(647, 320, 80, 106);
         //MenuCurrentImage = Menu;
     }
 

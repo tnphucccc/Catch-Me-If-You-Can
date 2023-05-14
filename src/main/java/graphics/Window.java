@@ -1,5 +1,6 @@
 package graphics;
 
+import core.TileManager;
 import variables.Constant;
 import core.MouseHandler;
 import core.KeyHandler;
