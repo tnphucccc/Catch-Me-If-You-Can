@@ -7,9 +7,11 @@ import graphics.*;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class Player extends Entity {
     KeyHandler keyH = Window.getKeyH();
+    BufferedImageLoader loader = new BufferedImageLoader();
 
     public Player(){
         this.name = "player";
@@ -23,12 +25,14 @@ public class Player extends Entity {
         solidArea.width =32;
 
         setDefault();
+        getPlayerImage();
         state = 1;
     }
 
     public void setDefault(){
         x = Constant.TILE_SIZE*2;
         y = Constant.TILE_SIZE*2;
+        speed = 2;
         direction="down";
     }
 
@@ -39,6 +43,21 @@ public class Player extends Entity {
     public int getY() {
         return y;
     }
+
+    public void getPlayerImage() {
+        try {
+            SpriteSheet ss = new SpriteSheet(loader.loadImage("/Player/PlayerBlackWalk.png"));
+            for (int i = 0; i < 4; i++) {
+                up[i] = ss.crop(16 * i, 0, 16, 24);
+                down[i] = ss.crop(16 * i, 24, 16, 24);
+                left[i] = ss.crop(16 * i, 48, 16, 24);
+                right[i] = ss.crop(16 * i, 72, 16, 24);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void update() {
         collisionOn = false;
@@ -62,6 +81,15 @@ public class Player extends Entity {
                     case "left" -> x -= speed;
                     case "right" -> x += speed;
                 }
+            }
+
+            spriteCounter++;
+            if (spriteCounter > 8) {
+                if (spriteNum != 4) {
+                    spriteNum++;
+                } else
+                    spriteNum = 1;
+                spriteCounter = 0;
             }
         }
     }
