@@ -8,6 +8,7 @@ import java.awt.*;
 public class Game extends Scene {
     TileManager tileM;
     Player player;
+
     public Game() {
         tileM = TileManager.getInstance();
         player = new Player();

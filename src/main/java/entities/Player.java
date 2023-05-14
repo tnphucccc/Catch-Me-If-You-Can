@@ -1,9 +1,10 @@
 package entities;
 
 import core.KeyHandler;
-import variables.Constant;
+import graphics.BufferedImageLoader;
+import graphics.SpriteSheet;
 import graphics.Window;
-import graphics.*;
+import variables.Constant;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -13,27 +14,27 @@ public class Player extends Entity {
     KeyHandler keyH = Window.getKeyH();
     BufferedImageLoader loader = new BufferedImageLoader();
 
-    public Player(){
+    public Player() {
         this.name = "player";
         solidArea = new Rectangle();
-        solidArea.x=8;
-        solidArea.y=16;
+        solidArea.x = 8;
+        solidArea.y = 16;
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
 
         solidArea.height = 32;
-        solidArea.width =32;
+        solidArea.width = 32;
 
         setDefault();
         getPlayerImage();
         state = 1;
     }
 
-    public void setDefault(){
-        x = Constant.TILE_SIZE*2;
-        y = Constant.TILE_SIZE*2;
+    public void setDefault() {
+        x = Constant.TILE_SIZE * 2;
+        y = Constant.TILE_SIZE * 2;
         speed = 2;
-        direction="down";
+        direction = "down";
     }
 
     public int getX() {
