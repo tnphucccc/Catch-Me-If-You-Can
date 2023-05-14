@@ -17,8 +17,7 @@ public class TileManager {
     SpriteSheet sheet;
     int[][] map;
     BufferedImageLoader loader = new BufferedImageLoader();
-    public TileManager (Window window){
-        this.window = window;
+    public TileManager (){
         tiles = new Tile[10];
         map = new int[Constant.MAX_SCREEN_COL][Constant.MAX_SCREEN_ROW];
         getTileImage();
@@ -78,11 +77,15 @@ public class TileManager {
         }
     }
     public static TileManager instance = null;
-    public static TileManager getInstance(Window window){
+    public static TileManager getInstance(){
         if (instance == null){
-            instance = new TileManager(window);
+            instance = new TileManager();
         }
         return instance;
+    }
+
+    public void update() {
+
     }
 
     public void draw(Graphics2D g2){
@@ -104,6 +107,5 @@ public class TileManager {
                 y += Constant.TILE_SIZE;
             }
         }
-
     }
 }
