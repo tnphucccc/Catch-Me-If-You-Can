@@ -21,43 +21,43 @@ public class Collision {
 
         int checkTile1, checkTile2;
 
-        switch(entity.direction){
-            case "up":
-                entityTopRow = (entityTopY - entity.speed)/Constant.TILE_SIZE;
+        switch (entity.direction) {
+            case "up" -> {
+                entityTopRow = (entityTopY - entity.speed) / Constant.TILE_SIZE;
                 checkTile1 = TileManager.map[entityLeftCol][entityTopRow];
                 checkTile2 = TileManager.map[entityRightCol][entityTopRow];
-                if(TileManager.tiles[checkTile1].collision ==  true
-                        || TileManager.tiles[checkTile2].collision ==  true){
+                if (TileManager.tiles[checkTile1].collision
+                        || TileManager.tiles[checkTile2].collision) {
                     entity.collisionOn = true;
                 }
-                break;
-            case "down":
-                entityBottomRow = (entityBottomY + entity.speed)/Constant.TILE_SIZE;
+            }
+            case "down" -> {
+                entityBottomRow = (entityBottomY + entity.speed) / Constant.TILE_SIZE;
                 checkTile1 = TileManager.map[entityLeftCol][entityBottomRow];
                 checkTile2 = TileManager.map[entityRightCol][entityBottomRow];
-                if(TileManager.tiles[checkTile1].collision ==  true
-                        || TileManager.tiles[checkTile2].collision ==  true){
+                if (TileManager.tiles[checkTile1].collision
+                        || TileManager.tiles[checkTile2].collision) {
                     entity.collisionOn = true;
                 }
-                break;
-            case "left":
-                entityLeftCol = (entityLeftX - entity.speed)/Constant.TILE_SIZE;
+            }
+            case "left" -> {
+                entityLeftCol = (entityLeftX - entity.speed) / Constant.TILE_SIZE;
                 checkTile1 = TileManager.map[entityLeftCol][entityTopRow];
                 checkTile2 = TileManager.map[entityLeftCol][entityBottomRow];
-                if(TileManager.tiles[checkTile1].collision ==  true
-                        || TileManager.tiles[checkTile2].collision ==  true){
+                if (TileManager.tiles[checkTile1].collision
+                        || TileManager.tiles[checkTile2].collision) {
                     entity.collisionOn = true;
                 }
-                break;
-            case "right":
-                entityRightCol = (entityRightX + entity.speed)/Constant.TILE_SIZE;
+            }
+            case "right" -> {
+                entityRightCol = (entityRightX + entity.speed) / Constant.TILE_SIZE;
                 checkTile1 = TileManager.map[entityRightCol][entityTopRow];
                 checkTile2 = TileManager.map[entityRightCol][entityBottomRow];
-                if(TileManager.tiles[checkTile1].collision ==  true
-                        || TileManager.tiles[checkTile2].collision ==  true){
+                if (TileManager.tiles[checkTile1].collision
+                        || TileManager.tiles[checkTile2].collision) {
                     entity.collisionOn = true;
                 }
-                break;
+            }
         }
     }
 }
