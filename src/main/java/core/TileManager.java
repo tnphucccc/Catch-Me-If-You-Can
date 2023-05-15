@@ -14,9 +14,9 @@ import java.io.InputStreamReader;
 public class TileManager {
     public static TileManager instance = null;
     Window window;
-    Tile[] tiles;
+    public static Tile[] tiles;
     SpriteSheet sheet;
-    int[][] map;
+    public static int[][] map;
     BufferedImageLoader loader = new BufferedImageLoader();
 
     public TileManager() {
@@ -38,6 +38,7 @@ public class TileManager {
             sheet = new SpriteSheet(loader.loadImage("/Tiles/tiles.png"));
             tiles[0] = new Tile();
             tiles[0].image = sheet.crop(0, 0, 16, 16);
+            tiles[0].collision = true;
 
             tiles[1] = new Tile();
             tiles[1].image = sheet.crop(16, 0, 16, 16);
