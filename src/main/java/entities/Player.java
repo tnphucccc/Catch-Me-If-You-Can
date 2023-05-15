@@ -1,5 +1,6 @@
 package entities;
 
+import core.Collision;
 import core.KeyHandler;
 import graphics.BufferedImageLoader;
 import graphics.SpriteSheet;
@@ -13,6 +14,7 @@ import java.io.IOException;
 public class Player extends Entity {
     KeyHandler keyH = Window.getKeyH();
     BufferedImageLoader loader = new BufferedImageLoader();
+    public Collision collisionCheck = new Collision();
 
     public Player() {
         this.name = "player";
@@ -62,6 +64,9 @@ public class Player extends Entity {
     @Override
     public void update() {
         collisionOn = false;
+
+        //Check collision
+        collisionCheck.checkTile(this);
 
         if ((keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) && state == 1) {
             if (keyH.upPressed) { //Character Movement
