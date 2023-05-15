@@ -24,4 +24,33 @@ public abstract class Entity {
         this.InteractionBox.add(2, entity.y + entity.solidArea.y + entity.solidArea.height);//BottomY
         this.InteractionBox.add(3, entity.x + entity.solidArea.x);//Left
     }
+    public BufferedImage getEntityImage() {
+        BufferedImage img = null;
+        switch (direction) {
+            case "up" -> img = getBufferedImage(up[0], up[1], up[2], up[3]);
+            case "down" -> img = getBufferedImage(down[0], down[1], down[2], down[3]);
+            case "left" -> img = getBufferedImage(left[0], left[1], left[2], left[3]);
+            case "right" -> img = getBufferedImage(right[0], right[1], right[2], right[3]);
+        }
+        return img;
+    }
+
+    public BufferedImage getBufferedImage(BufferedImage img1, BufferedImage img2,
+                                          BufferedImage img3, BufferedImage img4) {
+        switch (spriteNum) {
+            case 1 -> {
+                return img1;
+            }
+            case 2 -> {
+                return img2;
+            }
+            case 3 -> {
+                return img3;
+            }
+            case 4 -> {
+                return img4;
+            }
+        }
+        return null;
+    }
 }
