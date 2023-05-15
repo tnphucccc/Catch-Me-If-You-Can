@@ -1,9 +1,8 @@
 package graphics;
 
-import core.TileManager;
-import variables.Constant;
-import core.MouseHandler;
 import core.KeyHandler;
+import core.MouseHandler;
+import variables.Constant;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,9 +11,9 @@ public class Window extends JFrame implements Runnable {
     public static Window window = null;
     public static boolean isRunning;
     public static int currentState;
-    public Scene currentScene;
     static KeyHandler keyH = new KeyHandler();
     static MouseHandler mouseHandler = new MouseHandler();
+    public Scene currentScene;
 
     public Window(int width, int height, String TITLE) {
         setSize(width, height);
@@ -37,6 +36,14 @@ public class Window extends JFrame implements Runnable {
             Window.window = new Window(Constant.WIDTH, Constant.HEIGHT, Constant.TITLE);
         }
         return Window.window;
+    }
+
+    public static MouseHandler getMouseH() {
+        return mouseHandler;
+    }
+
+    public static KeyHandler getKeyH() {
+        return keyH;
     }
 
     public void setState(int state) {
@@ -101,9 +108,4 @@ public class Window extends JFrame implements Runnable {
         }
         this.dispose();
     }
-
-    public static MouseHandler getMouseH() {
-        return mouseHandler;
-    }
-    public static KeyHandler getKeyH(){return keyH;}
 }

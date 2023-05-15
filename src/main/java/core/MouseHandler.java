@@ -22,7 +22,7 @@ public class MouseHandler extends MouseAdapter implements MouseMotionListener {
         this.y = e.getY();
     }
 
-    public boolean checkInteractWithRect(MouseHandler mouseH, Rectangle rect){
+    public boolean checkInteractWithRect(MouseHandler mouseH, Rectangle rect) {
         return mouseH.getX() >= rect.x && mouseH.getX() <= rect.x + rect.width &&
                 mouseH.getY() >= rect.y && mouseH.getY() <= rect.y + rect.height;
     }

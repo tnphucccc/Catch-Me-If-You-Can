@@ -1,7 +1,7 @@
 package graphics;
 
-import variables.Constant;
 import core.MouseHandler;
+import variables.Constant;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -10,8 +10,9 @@ import java.io.File;
 
 public class Menu extends Scene {
     public Rectangle playButton;
-    private BufferedImage Menu;
     public MouseHandler mouseH = Window.getMouseH();
+    private BufferedImage Menu;
+
     public Menu() {
         try {
             Menu = ImageIO.read(new File("src/main/resources/Menu/MenuF.png"));
