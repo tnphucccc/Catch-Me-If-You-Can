@@ -1,0 +1,21 @@
+Index: src/main/resources/Map/Map.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/Map/Map.txt b/src/main/resources/Map/Map.txt
+new file mode 100644
+--- /dev/null	(date 1684218200931)
++++ b/src/main/resources/Map/Map.txt	(date 1684218200931)
+@@ -0,0 +1,11 @@
++4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
++4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
++4 1 3 3 2 3 3 3 3 3 3 2 3 3 3 1 4
++4 1 0 0 2 1 2 1 2 1 2 1 0 2 0 1 4
++4 1 2 2 1 1 2 3 0 3 2 1 0 2 2 1 4
++4 1 0 0 3 3 0 1 2 1 2 1 0 0 0 1 4
++4 1 0 0 0 0 0 2 3 3 0 1 1 2 1 1 4
++4 1 2 1 2 1 2 1 2 1 2 1 3 2 3 1 4
++4 1 0 3 0 3 0 3 3 3 3 2 0 0 2 1 4
++4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4
++4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
