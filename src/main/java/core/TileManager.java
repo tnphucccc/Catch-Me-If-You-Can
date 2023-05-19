@@ -42,6 +42,7 @@ public class TileManager {
 
             tiles[1] = new Tile();
             tiles[1].image = sheet.crop(16, 0, 16, 16);
+            tiles[1].collision = true;
 
             tiles[2] = new Tile();
             tiles[2].image = sheet.crop(32, 0, 16, 16);
