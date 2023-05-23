@@ -36,7 +36,6 @@ public class Player extends Entity {
         x = Constant.TILE_SIZE * 2;
         y = Constant.TILE_SIZE * 2;
         speed = 2;
-        direction = "down";
     }
 
     public int getX() {
@@ -70,22 +69,22 @@ public class Player extends Entity {
 
         if ((keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) && state == 1) {
             if (keyH.upPressed) { //Character Movement
-                direction = "up";
+                direction = 0;
             } else if (keyH.downPressed) {
-                direction = "down";
+                direction = 2;
             } else if (keyH.leftPressed) {
-                direction = "left";
+                direction = 3;
             } else {
-                direction = "right";
+                direction = 1;
             }
 
             //Animation
             if (!collisionOn) {
                 switch (direction) {
-                    case "up" -> y -= speed;
-                    case "down" -> y += speed;
-                    case "left" -> x -= speed;
-                    case "right" -> x += speed;
+                    case 0 -> y -= speed;
+                    case 2 -> y += speed;
+                    case 3 -> x -= speed;
+                    case 1 -> x += speed;
                 }
             }
 

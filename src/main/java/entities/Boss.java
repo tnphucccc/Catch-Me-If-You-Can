@@ -31,11 +31,10 @@ public class Boss extends Entity{
         getBossImage();
     }
     public void setDefault(){
-        x = Constant.TILE_SIZE * 10;
+        x = Constant.TILE_SIZE * 11;
         y = Constant.TILE_SIZE * 7;
         col = true;
         speed = 2;
-        direction = "down";
     }
     public void getBossImage(){
         try {

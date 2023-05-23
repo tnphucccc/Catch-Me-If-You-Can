@@ -23,7 +23,7 @@ public class Collision {
         int checkTile1, checkTile2;
 
         switch (entity.direction) {
-            case "up" -> {
+            case 0 -> {
                 entityTopRow = (entityTopY - entity.speed) / Constant.TILE_SIZE;
                 checkTile1 = TileManager.map[entityLeftCol][entityTopRow];
                 checkTile2 = TileManager.map[entityRightCol][entityTopRow];
@@ -32,7 +32,7 @@ public class Collision {
                     entity.collisionOn = true;
                 }
             }
-            case "down" -> {
+            case 2 -> {
                 entityBottomRow = (entityBottomY + entity.speed) / Constant.TILE_SIZE;
                 checkTile1 = TileManager.map[entityLeftCol][entityBottomRow];
                 checkTile2 = TileManager.map[entityRightCol][entityBottomRow];
@@ -41,7 +41,7 @@ public class Collision {
                     entity.collisionOn = true;
                 }
             }
-            case "left" -> {
+            case 3 -> {
                 entityLeftCol = (entityLeftX - entity.speed) / Constant.TILE_SIZE;
                 checkTile1 = TileManager.map[entityLeftCol][entityTopRow];
                 checkTile2 = TileManager.map[entityLeftCol][entityBottomRow];
@@ -50,7 +50,7 @@ public class Collision {
                     entity.collisionOn = true;
                 }
             }
-            case "right" -> {
+            case 1 -> {
                 entityRightCol = (entityRightX + entity.speed) / Constant.TILE_SIZE;
                 checkTile1 = TileManager.map[entityRightCol][entityTopRow];
                 checkTile2 = TileManager.map[entityRightCol][entityBottomRow];
