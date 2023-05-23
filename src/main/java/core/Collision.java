@@ -1,7 +1,8 @@
 package core;
 
-import entities.Entity;
+import entities.*;
 import variables.Constant;
+import java.awt.Rectangle;
 
 public class Collision {
     public Collision(){
@@ -58,6 +59,24 @@ public class Collision {
                     entity.collisionOn = true;
                 }
             }
+        }
+    }
+    public void checkMob(Entity entity, Boss boss) {
+        entity.setEntityInteractionBox(entity);
+        Rectangle entitySolidBox = new Rectangle(entity.InteractionBox.get(3),
+            entity.InteractionBox.get(0),
+            entity.solidArea.width,
+            entity.solidArea.height);
+        boss.setEntityInteractionBox(boss);
+        Rectangle bossSolidBox = new Rectangle(boss.InteractionBox.get(3),
+            boss.InteractionBox.get(0),
+            boss.solidArea.width,
+            boss.solidArea.height);
+            boolean intersects = entitySolidBox.intersects(bossSolidBox);
+            if (intersects&&boss.col) {
+                entity.collisionOn = true;
+                entity.state = 0;
+                entity.speed = 0;
         }
     }
 }
