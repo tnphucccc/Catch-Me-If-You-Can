@@ -9,8 +9,8 @@ import java.awt.*;
 
 public class Game extends Scene {
     TileManager tileM;
-    Player player;
-    public SuperObject obj[] = new SuperObject[10];
+    static Player player;
+    public SuperObject[] obj = new SuperObject[10];
     AssetSetter aSetter = new AssetSetter(this);
 
     public Game() {
@@ -31,15 +31,18 @@ public class Game extends Scene {
 
         tileM.draw(g2d);
 
-        for(int i = 0; i < obj.length; i++){
-            if(obj[i] != null){
-                obj[i].draw(g2d, this);
+        for (SuperObject superObject : obj) {
+            if (superObject != null) {
+                superObject.draw(g2d, this);
             }
 
-        player.draw(g2d);
+            player.draw(g2d);
         }
     }
     public void setupGame(){
         aSetter.setObject();
+    }
+    public static Player getPlayer(){
+        return player;
     }
 }
