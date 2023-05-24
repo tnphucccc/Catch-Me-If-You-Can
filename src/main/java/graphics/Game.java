@@ -3,21 +3,20 @@ package graphics;
 import core.AssetSetter;
 import core.SuperObject;
 import core.TileManager;
-import entities.*;
+import entities.Player;
 
 import java.awt.*;
 
 public class Game extends Scene {
     TileManager tileM;
     static Player player;
-    public SuperObject[] obj = new SuperObject[10];
-    Boss boss;
+    public static SuperObject[] Object = new SuperObject[20];
+    public static SuperObject[] PortList = new SuperObject[10];
     AssetSetter aSetter = new AssetSetter(this);
 
     public Game() {
         tileM = TileManager.getInstance();
         player = new Player();
-        boss = new Boss();
         setupGame();
     }
 
@@ -25,7 +24,7 @@ public class Game extends Scene {
     public void update() {
         tileM.update();
         player.update();
-        boss.update();
+
     }
 
     @Override
@@ -33,9 +32,8 @@ public class Game extends Scene {
         Graphics2D g2d = (Graphics2D) g;
 
         tileM.draw(g2d);
-        boss.draw(g2d);
 
-        for (SuperObject superObject : obj) {
+        for (SuperObject superObject : Object) {
             if (superObject != null) {
                 superObject.draw(g2d, this);
             }
