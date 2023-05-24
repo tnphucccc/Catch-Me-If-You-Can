@@ -31,7 +31,7 @@ public class Boss extends Entity{
         getBossImage();
     }
     public void setDefault(){
-        x = Constant.TILE_SIZE * 11;
+        x = Constant.TILE_SIZE * 9;
         y = Constant.TILE_SIZE * 7;
         col = true;
         speed = 2;
