@@ -10,7 +10,7 @@ import java.awt.*;
 public class Game extends Scene {
     TileManager tileM;
     static Player player;
-    public static SuperObject[] Object = new SuperObject[10];
+    public static SuperObject[] Object = new SuperObject[20];
     public static SuperObject[] PortList = new SuperObject[10];
     AssetSetter aSetter = new AssetSetter(this);
 

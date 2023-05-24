@@ -24,5 +24,13 @@ public class AssetSetter {
         Game.PortList[2] = Game.Object[4];
         Game.Object[5] = new OBJ_TelePort_Out(17,12);
         Game.PortList[3] = Game.Object[5];
+        Game.Object[8] = new OBJ_TelePort_Out(4,6);
+        Game.PortList[4] = Game.Object[8];
+        Game.Object[9] = new OBJ_TelePort_Out(11,8);
+        Game.PortList[5] = Game.Object[9];
+        Game.Object[10] = new OBJ_TelePort_Out(15,10);
+        Game.PortList[6] = Game.Object[10];
+        Game.Object[11] = new OBJ_TelePort_Out(9,7);
+        Game.PortList[7] = Game.Object[11];
     }
 }
