@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public abstract class Entity {
     public int x, y, speed, state;
-    public int spriteCounter = 0, spriteNum = 1;
-    public String direction, name;
+    public int spriteCounter = 0, spriteNum = 1, direction = 2;
+    public String name;
     public Rectangle solidArea;
     public boolean collisionOn = false;
     public ArrayList<Integer> InteractionBox = new ArrayList<>();
@@ -28,10 +28,10 @@ public abstract class Entity {
     public BufferedImage getEntityImage() {
         BufferedImage img = null;
         switch (direction) {
-            case "up" -> img = getBufferedImage(up[0], up[1], up[2], up[3]);
-            case "down" -> img = getBufferedImage(down[0], down[1], down[2], down[3]);
-            case "left" -> img = getBufferedImage(left[0], left[1], left[2], left[3]);
-            case "right" -> img = getBufferedImage(right[0], right[1], right[2], right[3]);
+            case 0 -> img = getBufferedImage(up[0], up[1], up[2], up[3]);
+            case 2 -> img = getBufferedImage(down[0], down[1], down[2], down[3]);
+            case 3 -> img = getBufferedImage(left[0], left[1], left[2], left[3]);
+            case 1 -> img = getBufferedImage(right[0], right[1], right[2], right[3]);
         }
         return img;
     }
