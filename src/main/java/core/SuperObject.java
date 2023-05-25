@@ -11,6 +11,10 @@ public class SuperObject {
     public String name;
     public boolean collision = false;
     public int objectX, objectY;
+    public Rectangle solidArea = new Rectangle(0,0,32,32);
+    public int solidAreaDefaultX = 0;
+    public int solidAreaDefaultY = 0;
+
     public void  draw(Graphics2D graphics2D, Game game){
             graphics2D.drawImage(image, objectX, objectY, Constant.TILE_SIZE, Constant.TILE_SIZE, null);
     }

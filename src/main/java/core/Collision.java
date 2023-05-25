@@ -3,6 +3,7 @@ package core;
 import entities.*;
 import variables.Constant;
 import java.awt.Rectangle;
+import graphics.Game;
 
 public class Collision {
     public Collision(){
@@ -23,7 +24,7 @@ public class Collision {
         int checkTile1, checkTile2;
 
         switch (entity.direction) {
-            case "up" -> {
+            case 0 -> {
                 entityTopRow = (entityTopY - entity.speed) / Constant.TILE_SIZE;
                 checkTile1 = TileManager.map[entityLeftCol][entityTopRow];
                 checkTile2 = TileManager.map[entityRightCol][entityTopRow];
@@ -32,7 +33,7 @@ public class Collision {
                     entity.collisionOn = true;
                 }
             }
-            case "down" -> {
+            case 2 -> {
                 entityBottomRow = (entityBottomY + entity.speed) / Constant.TILE_SIZE;
                 checkTile1 = TileManager.map[entityLeftCol][entityBottomRow];
                 checkTile2 = TileManager.map[entityRightCol][entityBottomRow];
@@ -41,7 +42,7 @@ public class Collision {
                     entity.collisionOn = true;
                 }
             }
-            case "left" -> {
+            case 3 -> {
                 entityLeftCol = (entityLeftX - entity.speed) / Constant.TILE_SIZE;
                 checkTile1 = TileManager.map[entityLeftCol][entityTopRow];
                 checkTile2 = TileManager.map[entityLeftCol][entityBottomRow];
@@ -50,7 +51,7 @@ public class Collision {
                     entity.collisionOn = true;
                 }
             }
-            case "right" -> {
+            case 1 -> {
                 entityRightCol = (entityRightX + entity.speed) / Constant.TILE_SIZE;
                 checkTile1 = TileManager.map[entityRightCol][entityTopRow];
                 checkTile2 = TileManager.map[entityRightCol][entityBottomRow];
@@ -78,5 +79,64 @@ public class Collision {
                 entity.state = 0;
                 entity.speed = 0;
         }
+    }
+    public int checkObject(Entity entity, boolean player){
+        int interactObject = -1;
+        for (int i = 0; i < Game.PortInList.length; i++) {
+            if (Game.PortInList[i] != null) {
+
+                // Get entity's solid area position
+                entity.solidArea.x = entity.getX() + entity.solidArea.x;
+                entity.solidArea.y = entity.getY() + entity.solidArea.y;
+
+                // Get object's solid area position
+                Game.PortInList[i].solidArea.x = Game.PortInList[i].objectX + Game.PortInList[i].solidArea.x;
+                Game.PortInList[i].solidArea.y = Game.PortInList[i].objectY + Game.PortInList[i].solidArea.y;
+
+                switch (entity.direction) {
+                    case 0 -> {
+                        entity.solidArea.y -= entity.speed;
+                        if(entity.solidArea.intersects(Game.PortInList[i].solidArea)){
+                            if(Game.PortInList[i].collision == true)
+                                entity.collisionOn = true;
+                            if(player == true)
+                                interactObject = i;
+                        }
+                    }
+                    case 2 -> {
+                        entity.solidArea.y += entity.speed;
+                        if(entity.solidArea.intersects(Game.PortInList[i].solidArea)){
+                            if(Game.PortInList[i].collision == true)
+                                entity.collisionOn = true;
+                            if(player == true)
+                                interactObject = i;
+                        }
+                    }
+                    case 3 -> {
+                        entity.solidArea.x -= entity.speed;
+                        if(entity.solidArea.intersects(Game.PortInList[i].solidArea)){
+                            if(Game.PortInList[i].collision == true)
+                                entity.collisionOn = true;
+                            if(player == true)
+                                interactObject = i;
+                        }
+                    }
+                    case 1 -> {
+                        entity.solidArea.x += entity.speed;
+                        if(entity.solidArea.intersects(Game.PortInList[i].solidArea)){
+                            if(Game.PortInList[i].collision == true)
+                                entity.collisionOn = true;
+                            if(player == true)
+                                interactObject = i;
+                        }
+                    }
+                }
+                entity.solidArea.x = entity.solidAreaDefaultX;
+                entity.solidArea.y = entity.solidAreaDefaultY;
+                Game.PortInList[i].solidArea.x = Game.PortInList[i].solidAreaDefaultX;
+                Game.PortInList[i].solidArea.y = Game.PortInList[i].solidAreaDefaultY;
+            }
+        }
+        return interactObject;
     }
 }

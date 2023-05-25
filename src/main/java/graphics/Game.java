@@ -3,7 +3,7 @@ package graphics;
 import core.AssetSetter;
 import core.SuperObject;
 import core.TileManager;
-import entities.Player;
+import entities.*;
 
 import java.awt.*;
 
@@ -12,11 +12,14 @@ public class Game extends Scene {
     static Player player;
     public static SuperObject[] Object = new SuperObject[20];
     public static SuperObject[] PortList = new SuperObject[10];
+    public static SuperObject[] PortInList = new SuperObject[10];
+    Boss boss;
     AssetSetter aSetter = new AssetSetter(this);
 
     public Game() {
         tileM = TileManager.getInstance();
         player = new Player();
+        boss = new Boss();
         setupGame();
     }
 
@@ -24,6 +27,7 @@ public class Game extends Scene {
     public void update() {
         tileM.update();
         player.update();
+        boss.update();
 
     }
 
@@ -39,6 +43,7 @@ public class Game extends Scene {
             }
         }
         player.draw(g2d);
+        boss.draw(g2d);
     }
     public void setupGame(){
         aSetter.setObject();
