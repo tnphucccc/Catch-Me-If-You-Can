@@ -37,9 +37,8 @@ public class Game extends Scene {
             if (superObject != null) {
                 superObject.draw(g2d, this);
             }
-
-            player.draw(g2d);
         }
+        player.draw(g2d);
     }
     public void setupGame(){
         aSetter.setObject();
