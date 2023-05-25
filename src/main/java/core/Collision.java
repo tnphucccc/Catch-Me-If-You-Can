@@ -3,6 +3,7 @@ package core;
 import entities.*;
 import variables.Constant;
 import java.awt.Rectangle;
+import graphics.Game;
 
 public class Collision {
     public Collision(){
@@ -78,5 +79,64 @@ public class Collision {
                 entity.state = 0;
                 entity.speed = 0;
         }
+    }
+    public int checkObject(Entity entity, boolean player){
+        int interactObject = -1;
+        for (int i = 0; i < Game.Object.length; i++) {
+            if (Game.Object[i] != null) {
+
+                // Get entity's solid area position
+                entity.solidArea.x = entity.getX() + entity.solidArea.x;
+                entity.solidArea.y = entity.getY() + entity.solidArea.y;
+
+                // Get object's solid area position
+                Game.Object[i].solidArea.x = Game.Object[i].objectX + Game.Object[i].solidArea.x;
+                Game.Object[i].solidArea.y = Game.Object[i].objectY + Game.Object[i].solidArea.y;
+
+                switch (entity.direction) {
+                    case 0 -> {
+                        entity.solidArea.y -= entity.speed;
+                        if(entity.solidArea.intersects(Game.Object[i].solidArea)){
+                            if(Game.Object[i].collision == true)
+                                entity.collisionOn = true;
+                            if(player == true)
+                                interactObject = i;
+                        }
+                    }
+                    case 2 -> {
+                        entity.solidArea.y += entity.speed;
+                        if(entity.solidArea.intersects(Game.Object[i].solidArea)){
+                            if(Game.Object[i].collision == true)
+                                entity.collisionOn = true;
+                            if(player == true)
+                                interactObject = i;
+                        }
+                    }
+                    case 3 -> {
+                        entity.solidArea.x -= entity.speed;
+                        if(entity.solidArea.intersects(Game.Object[i].solidArea)){
+                            if(Game.Object[i].collision == true)
+                                entity.collisionOn = true;
+                            if(player == true)
+                                interactObject = i;
+                        }
+                    }
+                    case 1 -> {
+                        entity.solidArea.x += entity.speed;
+                        if(entity.solidArea.intersects(Game.Object[i].solidArea)){
+                            if(Game.Object[i].collision == true)
+                                entity.collisionOn = true;
+                            if(player == true)
+                                interactObject = i;
+                        }
+                    }
+                }
+                entity.solidArea.x = entity.solidAreaDefaultX;
+                entity.solidArea.y = entity.solidAreaDefaultY;
+                Game.Object[i].solidArea.x = Game.Object[i].solidAreaDefaultX;
+                Game.Object[i].solidArea.y = Game.Object[i].solidAreaDefaultY;
+            }
+        }
+        return interactObject;
     }
 }

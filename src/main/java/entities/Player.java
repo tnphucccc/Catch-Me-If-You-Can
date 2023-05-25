@@ -67,6 +67,9 @@ public class Player extends Entity {
         //Check collision
         collisionCheck.checkTile(this);
 
+        //Check object collision
+        int interactObject = collisionCheck.checkObject(this, true);
+
         if ((keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) && state == 1) {
             if (keyH.upPressed) { //Character Movement
                 direction = 0;

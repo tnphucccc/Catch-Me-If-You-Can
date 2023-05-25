@@ -17,5 +17,6 @@ public class OBJ_TelePort_In extends SuperObject{
         } catch(IOException e){
                 e.printStackTrace();
         }
+        collision = true;
     }
 }
