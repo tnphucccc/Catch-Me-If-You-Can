@@ -82,22 +82,22 @@ public class Collision {
     }
     public int checkObject(Entity entity, boolean player){
         int interactObject = -1;
-        for (int i = 0; i < Game.Object.length; i++) {
-            if (Game.Object[i] != null) {
+        for (int i = 0; i < Game.PortInList.length; i++) {
+            if (Game.PortInList[i] != null) {
 
                 // Get entity's solid area position
                 entity.solidArea.x = entity.getX() + entity.solidArea.x;
                 entity.solidArea.y = entity.getY() + entity.solidArea.y;
 
                 // Get object's solid area position
-                Game.Object[i].solidArea.x = Game.Object[i].objectX + Game.Object[i].solidArea.x;
-                Game.Object[i].solidArea.y = Game.Object[i].objectY + Game.Object[i].solidArea.y;
+                Game.PortInList[i].solidArea.x = Game.PortInList[i].objectX + Game.PortInList[i].solidArea.x;
+                Game.PortInList[i].solidArea.y = Game.PortInList[i].objectY + Game.PortInList[i].solidArea.y;
 
                 switch (entity.direction) {
                     case 0 -> {
                         entity.solidArea.y -= entity.speed;
-                        if(entity.solidArea.intersects(Game.Object[i].solidArea)){
-                            if(Game.Object[i].collision == true)
+                        if(entity.solidArea.intersects(Game.PortInList[i].solidArea)){
+                            if(Game.PortInList[i].collision == true)
                                 entity.collisionOn = true;
                             if(player == true)
                                 interactObject = i;
@@ -105,8 +105,8 @@ public class Collision {
                     }
                     case 2 -> {
                         entity.solidArea.y += entity.speed;
-                        if(entity.solidArea.intersects(Game.Object[i].solidArea)){
-                            if(Game.Object[i].collision == true)
+                        if(entity.solidArea.intersects(Game.PortInList[i].solidArea)){
+                            if(Game.PortInList[i].collision == true)
                                 entity.collisionOn = true;
                             if(player == true)
                                 interactObject = i;
@@ -114,8 +114,8 @@ public class Collision {
                     }
                     case 3 -> {
                         entity.solidArea.x -= entity.speed;
-                        if(entity.solidArea.intersects(Game.Object[i].solidArea)){
-                            if(Game.Object[i].collision == true)
+                        if(entity.solidArea.intersects(Game.PortInList[i].solidArea)){
+                            if(Game.PortInList[i].collision == true)
                                 entity.collisionOn = true;
                             if(player == true)
                                 interactObject = i;
@@ -123,8 +123,8 @@ public class Collision {
                     }
                     case 1 -> {
                         entity.solidArea.x += entity.speed;
-                        if(entity.solidArea.intersects(Game.Object[i].solidArea)){
-                            if(Game.Object[i].collision == true)
+                        if(entity.solidArea.intersects(Game.PortInList[i].solidArea)){
+                            if(Game.PortInList[i].collision == true)
                                 entity.collisionOn = true;
                             if(player == true)
                                 interactObject = i;
@@ -133,8 +133,8 @@ public class Collision {
                 }
                 entity.solidArea.x = entity.solidAreaDefaultX;
                 entity.solidArea.y = entity.solidAreaDefaultY;
-                Game.Object[i].solidArea.x = Game.Object[i].solidAreaDefaultX;
-                Game.Object[i].solidArea.y = Game.Object[i].solidAreaDefaultY;
+                Game.PortInList[i].solidArea.x = Game.PortInList[i].solidAreaDefaultX;
+                Game.PortInList[i].solidArea.y = Game.PortInList[i].solidAreaDefaultY;
             }
         }
         return interactObject;

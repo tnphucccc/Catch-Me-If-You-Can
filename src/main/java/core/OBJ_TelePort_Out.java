@@ -10,6 +10,7 @@ public class OBJ_TelePort_Out extends SuperObject {
         this.objectX = x * Constant.TILE_SIZE;
         this.objectY = y * Constant.TILE_SIZE;
         name = "teleport_in";
+        collision = false;
         try{
             image = ImageIO.read(getClass().getResourceAsStream("/Objects/TelePort_Out.png"));
         } catch(IOException e){

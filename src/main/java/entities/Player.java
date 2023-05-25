@@ -3,6 +3,7 @@ package entities;
 import core.Collision;
 import core.KeyHandler;
 import graphics.BufferedImageLoader;
+import graphics.Game;
 import graphics.SpriteSheet;
 import graphics.Window;
 import variables.Constant;
@@ -69,6 +70,7 @@ public class Player extends Entity {
 
         //Check object collision
         int interactObject = collisionCheck.checkObject(this, true);
+        tele(interactObject);
 
         if ((keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) && state == 1) {
             if (keyH.upPressed) { //Character Movement
@@ -102,6 +104,19 @@ public class Player extends Entity {
         }
     }
 
+    public void tele (int index){
+        if (index != -1) {
+            //choose a random port
+            int portIndex = (int) Math.floor(Math.random() * 10);
+            while (Game.PortList[portIndex] == null) {
+                portIndex = (int) Math.floor(Math.random() * 10);
+            }
+            //teleport
+            this.x = (int) Game.PortList[portIndex].objectX;
+            this.y = (int) Game.PortList[portIndex].objectY;
+            //Game.PortInList[index].cooldown = true;
+        }
+    }
     @Override
     public void draw(Graphics2D g2) {
         BufferedImage img = getEntityImage();

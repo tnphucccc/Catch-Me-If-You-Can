@@ -12,6 +12,7 @@ public class Game extends Scene {
     static Player player;
     public static SuperObject[] Object = new SuperObject[20];
     public static SuperObject[] PortList = new SuperObject[10];
+    public static SuperObject[] PortInList = new SuperObject[10];
     Boss boss;
     AssetSetter aSetter = new AssetSetter(this);
 
@@ -27,6 +28,7 @@ public class Game extends Scene {
         tileM.update();
         player.update();
         boss.update();
+
     }
 
     @Override
