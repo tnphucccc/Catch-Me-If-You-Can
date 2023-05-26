@@ -28,7 +28,11 @@ public class Game extends Scene {
         tileM.update();
         player.update();
         boss.update();
-
+        for (SuperObject port : Game.PortInList){
+            if (port != null){
+                port.releaseCooldown();
+            }
+        }
     }
 
     @Override

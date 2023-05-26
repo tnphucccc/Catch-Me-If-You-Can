@@ -15,6 +15,7 @@ public class SuperObject {
     public int solidAreaDefaultX = 0;
     public int solidAreaDefaultY = 0;
     public boolean cooldown = false;
+    public long timeStart = 0L;
 
     public void  draw(Graphics2D graphics2D, Game game){
             graphics2D.drawImage(image, objectX, objectY, Constant.TILE_SIZE, Constant.TILE_SIZE, null);
@@ -26,5 +27,16 @@ public class SuperObject {
     }
     public void setCooldown (boolean cooldown){
         this.cooldown = cooldown;
+        updateTime();
+    }
+    public void releaseCooldown(){
+        if (cooldown){
+            if ((System.nanoTime() - timeStart)/1000000000 >= 30){
+                cooldown = false;
+            }
+        }
+    }
+    public void updateTime(){
+        timeStart = System.nanoTime();
     }
 }
