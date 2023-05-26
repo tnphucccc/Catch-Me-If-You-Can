@@ -14,6 +14,7 @@ public class SuperObject {
     public Rectangle solidArea = new Rectangle(0,0,32,32);
     public int solidAreaDefaultX = 0;
     public int solidAreaDefaultY = 0;
+    public boolean cooldown = false;
 
     public void  draw(Graphics2D graphics2D, Game game){
             graphics2D.drawImage(image, objectX, objectY, Constant.TILE_SIZE, Constant.TILE_SIZE, null);
@@ -22,5 +23,8 @@ public class SuperObject {
     public void setPosition(int objectX, int objectY) {
         this.objectX = objectX * Constant.TILE_SIZE;
         this.objectY = objectY * Constant.TILE_SIZE;
+    }
+    public void setCooldown (boolean cooldown){
+        this.cooldown = cooldown;
     }
 }

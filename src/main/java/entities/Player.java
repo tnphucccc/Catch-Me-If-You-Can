@@ -105,7 +105,7 @@ public class Player extends Entity {
     }
 
     public void tele (int index){
-        if (index != -1) {
+        if (index != -1 && Game.PortInList[index].cooldown == false) {
             //choose a random port
             int portIndex = (int) Math.floor(Math.random() * 10);
             while (Game.PortList[portIndex] == null) {
@@ -114,7 +114,7 @@ public class Player extends Entity {
             //teleport
             this.x = (int) Game.PortList[portIndex].objectX;
             this.y = (int) Game.PortList[portIndex].objectY;
-            //Game.PortInList[index].cooldown = true;
+            Game.PortInList[index].setCooldown(true);
         }
     }
     @Override
