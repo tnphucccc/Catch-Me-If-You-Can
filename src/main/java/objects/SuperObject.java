@@ -1,4 +1,4 @@
-package core;
+package objects;
 
 import graphics.Game;
 import variables.Constant;

@@ -2,6 +2,7 @@ package entities;
 
 import core.Collision;
 import graphics.BufferedImageLoader;
+import graphics.SpriteSheet;
 import variables.Constant;
 import graphics.Game;
 
@@ -38,15 +39,12 @@ public class Boss extends Entity{
     }
     public void getBossImage(){
         try {
+            SpriteSheet ss = new SpriteSheet(loader.loadImage("/Sprite/PlayerWhiteWalk.png"));
             for (int i = 0; i < 4; i++) {
-                up[i] = ImageIO.read(Objects.requireNonNull(getClass()
-                        .getResourceAsStream("/Boss/MobUpRight" + (i + 1) + ".png")));
-                down[i] = ImageIO.read(Objects.requireNonNull(getClass()
-                        .getResourceAsStream("/Boss/MobDownLeft" + (i + 1) + ".png")));
-                left[i] = ImageIO.read(Objects.requireNonNull(getClass()
-                        .getResourceAsStream("/Boss/MobDownLeft" + (i + 1) + ".png")));
-                right[i] = ImageIO.read(Objects.requireNonNull(getClass()
-                        .getResourceAsStream("/Boss/MobUpRight" + (i + 1) + ".png")));
+                up[i] = ss.crop(16 * i, 0, 16, 24);
+                down[i] = ss.crop(16 * i, 24, 16, 24);
+                left[i] = ss.crop(16 * i, 48, 16, 24);
+                right[i] = ss.crop(16 * i, 72, 16, 24);
             }
         } catch (IOException e) {
             e.printStackTrace();
