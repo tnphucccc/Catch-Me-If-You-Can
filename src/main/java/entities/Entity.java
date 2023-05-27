@@ -17,7 +17,9 @@ public abstract class Entity {
 
 
     public abstract void update();
+
     public abstract void draw(Graphics2D g2);
+
     public void setEntityInteractionBox(Entity entity) {
         this.InteractionBox.add(0, entity.y + entity.solidArea.y);//TopY
         this.InteractionBox.add(1, entity.x + entity.solidArea.x + entity.solidArea.width);//RightX
@@ -59,6 +61,7 @@ public abstract class Entity {
     public int getX() {
         return ((x + 16) / 48) * 48;
     }
+
     public int getY() {
         return ((y + 16) / 48) * 48;
     }

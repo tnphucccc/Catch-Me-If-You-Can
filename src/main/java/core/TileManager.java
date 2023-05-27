@@ -2,7 +2,6 @@ package core;
 
 import graphics.BufferedImageLoader;
 import graphics.SpriteSheet;
-import graphics.Window;
 import variables.Constant;
 
 import java.awt.*;
@@ -13,10 +12,9 @@ import java.io.InputStreamReader;
 
 public class TileManager {
     public static TileManager instance = null;
-    Window window;
     public static Tile[] tiles;
-    SpriteSheet sheet;
     public static int[][] map;
+    SpriteSheet sheet;
     BufferedImageLoader loader = new BufferedImageLoader();
 
     public TileManager() {
@@ -60,6 +58,7 @@ public class TileManager {
     public void loadMap(String path) {
         try {
             InputStream is = getClass().getResourceAsStream(path);
+            assert is != null;
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
             int col = 0;

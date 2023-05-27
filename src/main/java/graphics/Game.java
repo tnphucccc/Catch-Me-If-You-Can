@@ -1,18 +1,19 @@
 package graphics;
 
 import core.AssetSetter;
-import objects.SuperObject;
 import core.TileManager;
-import entities.*;
+import entities.Boss;
+import entities.Player;
+import objects.SuperObject;
 
 import java.awt.*;
 
 public class Game extends Scene {
-    TileManager tileM;
-    static Player player;
     public static SuperObject[] Object = new SuperObject[20];
     public static SuperObject[] PortList = new SuperObject[10];
     public static SuperObject[] PortInList = new SuperObject[10];
+    static Player player;
+    TileManager tileM;
     Boss boss;
     AssetSetter aSetter = new AssetSetter(this);
 
@@ -23,13 +24,17 @@ public class Game extends Scene {
         setupGame();
     }
 
+    public static Player getPlayer() {
+        return player;
+    }
+
     @Override
     public void update() {
         tileM.update();
         player.update();
         boss.update();
-        for (SuperObject port : Game.PortInList){
-            if (port != null){
+        for (SuperObject port : Game.PortInList) {
+            if (port != null) {
                 port.releaseCD();
             }
         }
@@ -43,16 +48,14 @@ public class Game extends Scene {
 
         for (SuperObject superObject : Object) {
             if (superObject != null) {
-                superObject.draw(g2d, this);
+                superObject.draw(g2d);
             }
         }
         player.draw(g2d);
         boss.draw(g2d);
     }
-    public void setupGame(){
+
+    public void setupGame() {
         aSetter.setObject();
-    }
-    public static Player getPlayer(){
-        return player;
     }
 }

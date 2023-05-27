@@ -1,6 +1,5 @@
 package graphics;
 
-import core.Collision;
 import core.KeyHandler;
 import core.MouseHandler;
 import variables.Constant;

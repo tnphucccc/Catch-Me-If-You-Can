@@ -13,9 +13,9 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class Player extends Entity {
+    public Collision collisionCheck = new Collision();
     KeyHandler keyH = Window.getKeyH();
     BufferedImageLoader loader = new BufferedImageLoader();
-    public Collision collisionCheck = new Collision();
 
     public Player() {
         this.name = "player";
@@ -104,7 +104,7 @@ public class Player extends Entity {
         }
     }
 
-    public void teleport (int index){
+    public void teleport(int index) {
 
         if (index != -1 && !Game.PortInList[index].cd) {
             //choose a random port
@@ -118,6 +118,7 @@ public class Player extends Entity {
             Game.PortInList[index].setCD(true);
         }
     }
+
     @Override
     public void draw(Graphics2D g2) {
         BufferedImage img = getEntityImage();
