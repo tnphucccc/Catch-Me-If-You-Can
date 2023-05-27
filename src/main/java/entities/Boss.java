@@ -31,7 +31,7 @@ public class Boss extends Entity{
         getBossImage();
     }
     public void setDefault(){
-        x = Constant.TILE_SIZE * 9;
+        x = Constant.TILE_SIZE * 8;
         y = Constant.TILE_SIZE * 7;
         collision = true;
         speed = 2;
@@ -53,24 +53,28 @@ public class Boss extends Entity{
         collisionOn=false;
         collisionCheck.checkTile(this);
         collisionCheck.checkMob(Game.getPlayer(), this);
+//        collisionCheck.checkObject(this, false);
     }
     @Override
     public void update(){
+        int startCol = (Game.getPlayer().x + Game.getPlayer().solidArea.x)/Constant.TILE_SIZE;
+        int startRow = (Game.getPlayer().y + Game.getPlayer().solidArea.y)/Constant.TILE_SIZE;
         checkCollision();
-        searchPath(3,3);
-        if(!collisionOn){
-            switch (direction) {
-                case 0 -> y -= speed;
-                case 2 -> y += speed;
-                case 3 -> x -= speed;
-                case 1 -> x += speed;
-            }
+        searchPath(startCol,startRow);
+
+        spriteCounter++;
+        if (spriteCounter > 8) {
+            if (spriteNum != 4) {
+                spriteNum++;
+            } else
+                spriteNum = 1;
+            spriteCounter = 0;
         }
 
     }
     public void searchPath(int goalCol, int goalRow){
-        int startCol = (int) (this.x + solidArea.x)/Constant.TILE_SIZE ;
-        int startRow = (int) (this.y+ solidArea.y)/Constant.TILE_SIZE;
+        int startCol = (this.x + solidArea.x)/Constant.TILE_SIZE;
+        int startRow = (this.y+ solidArea.y)/Constant.TILE_SIZE;
         pFind.setNodes(startCol, startRow, goalCol,goalRow);
 
         if(pFind.search()){
@@ -96,15 +100,16 @@ public class Boss extends Entity{
                 //Left or Right
                 if(this.InteractionBox.get(3)>nextX){
                     direction = 3;
-                    x-=speed;
+                    x -= speed;
                 }
                 if(this.InteractionBox.get(3) < nextX){
                     direction = 1;
-                    x+=speed;
+                    x += speed;
                 }
             } else if (this.InteractionBox.get(0) > nextY && this.InteractionBox.get(3) > nextX){
                 //Up or Left
                 direction = 0;
+                y -= speed;
                 checkCollision();
                 if(collisionOn){
                     direction = 3;
@@ -114,36 +119,31 @@ public class Boss extends Entity{
             } else if (this.InteractionBox.get(0) > nextY && this.InteractionBox.get(3) < nextX){
                 //Up or Right
                 direction = 0;
-                y+=speed;
+                y -= speed;
                 checkCollision();
                 if(collisionOn){
                     direction =1;
-                    x+=speed;
-
+                    x += speed;
                 }
             } else if (this.InteractionBox.get(0) < nextY && this.InteractionBox.get(3) > nextX){
                 //Down or Left
                 direction = 2;
-                y+=speed;
+                y += speed;
                 checkCollision();
                 if(collisionOn){
                     direction = 3;
-                    x-=speed;
+                    x -= speed;
                 }
 
             } else if (this.InteractionBox.get(0) < nextY && this.InteractionBox.get(3) < nextX){
                 //Down or Right
                 direction = 2;
-                y+=speed;
+                y += speed;
                 checkCollision();
                 if(collisionOn){
                     direction =1;
+                    x += speed;
                 }
-            }
-            int nextCol = pFind.pathList.get(0).col;
-            int nextRow = pFind.pathList.get(0).row;
-            if (nextCol == goalCol && nextRow == goalRow){
-                onPath = false;
             }
         }
     }
@@ -153,11 +153,11 @@ public class Boss extends Entity{
         g2.drawImage(img,this.x ,this.y, Constant.TILE_SIZE, Constant.TILE_SIZE, null);
 
         if(onPath){
-            g2.setColor(new Color(255,0,0,70));
+            g2.setColor(new Color(255,0,0,50));
 
             for(int i = 0;i < pFind.pathList.size();i++){
-                int worldX = pFind.pathList.get(i).col + Constant.TILE_SIZE;
-                int worldY = pFind.pathList.get(i).row + Constant.TILE_SIZE;
+                int worldX = pFind.pathList.get(i).col*Constant.TILE_SIZE;
+                int worldY = pFind.pathList.get(i).row*Constant.TILE_SIZE;
 
                 g2.fillRect(worldX,worldY,Constant.TILE_SIZE,Constant.TILE_SIZE);
             }
