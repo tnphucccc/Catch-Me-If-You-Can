@@ -1,7 +1,7 @@
 package graphics;
 
 import core.AssetSetter;
-import core.SuperObject;
+import objects.SuperObject;
 import core.TileManager;
 import entities.*;
 

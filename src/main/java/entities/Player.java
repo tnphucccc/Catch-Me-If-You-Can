@@ -49,7 +49,7 @@ public class Player extends Entity {
 
     public void getPlayerImage() {
         try {
-            SpriteSheet ss = new SpriteSheet(loader.loadImage("/Player/PlayerBlackWalk.png"));
+            SpriteSheet ss = new SpriteSheet(loader.loadImage("/Sprite/PlayerBlackWalk.png"));
             for (int i = 0; i < 4; i++) {
                 up[i] = ss.crop(16 * i, 0, 16, 24);
                 down[i] = ss.crop(16 * i, 24, 16, 24);

@@ -1,7 +1,8 @@
 package core;
 
 import graphics.Game;
-import variables.Constant;
+import objects.OBJ_TelePort_In;
+import objects.OBJ_TelePort_Out;
 
 public class AssetSetter {
     Game game;
