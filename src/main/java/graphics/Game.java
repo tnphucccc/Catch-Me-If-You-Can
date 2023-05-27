@@ -30,7 +30,7 @@ public class Game extends Scene {
         boss.update();
         for (SuperObject port : Game.PortInList){
             if (port != null){
-                port.releaseCooldown();
+                port.releaseCD();
             }
         }
     }
