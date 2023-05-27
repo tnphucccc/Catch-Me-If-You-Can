@@ -97,36 +97,36 @@ public class Collision {
                     case 0 -> {
                         entity.solidArea.y -= entity.speed;
                         if(entity.solidArea.intersects(Game.PortInList[i].solidArea)){
-                            if(Game.PortInList[i].collision == true)
+                            if(Game.PortInList[i].collision)
                                 entity.collisionOn = true;
-                            if(player == true)
+                            if(player)
                                 interactObject = i;
                         }
                     }
                     case 2 -> {
                         entity.solidArea.y += entity.speed;
                         if(entity.solidArea.intersects(Game.PortInList[i].solidArea)){
-                            if(Game.PortInList[i].collision == true)
+                            if(Game.PortInList[i].collision)
                                 entity.collisionOn = true;
-                            if(player == true)
+                            if(player)
                                 interactObject = i;
                         }
                     }
                     case 3 -> {
                         entity.solidArea.x -= entity.speed;
                         if(entity.solidArea.intersects(Game.PortInList[i].solidArea)){
-                            if(Game.PortInList[i].collision == true)
+                            if(Game.PortInList[i].collision)
                                 entity.collisionOn = true;
-                            if(player == true)
+                            if(player)
                                 interactObject = i;
                         }
                     }
                     case 1 -> {
                         entity.solidArea.x += entity.speed;
                         if(entity.solidArea.intersects(Game.PortInList[i].solidArea)){
-                            if(Game.PortInList[i].collision == true)
+                            if(Game.PortInList[i].collision)
                                 entity.collisionOn = true;
-                            if(player == true)
+                            if(player)
                                 interactObject = i;
                         }
                     }
