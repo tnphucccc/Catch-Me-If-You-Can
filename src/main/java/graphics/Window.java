@@ -64,10 +64,6 @@ public class Window extends JFrame implements Runnable {
         }
     }
 
-    public int getCurrentState() {
-        return currentState;
-    }
-
     public void update() {
         Image dbImage = createImage(getWidth(), getHeight());
         Graphics dbg = dbImage.getGraphics();
@@ -89,7 +85,6 @@ public class Window extends JFrame implements Runnable {
     public void run() {
         double drawInterval = 1000000000.0 / Constant.FPS, delta = 0;
         long lastTime = System.nanoTime(), currentTime, timer = 0;
-        int count = 0;
 
         while (isRunning) {
             currentTime = System.nanoTime();
@@ -101,12 +96,10 @@ public class Window extends JFrame implements Runnable {
             if (delta >= 1) {
                 update();
                 delta--;
-                count++;
             }
 
             if (timer >= 1000000000) {
                 // System.out.println("FPS: " + Count);
-                count = 0;
                 timer = 0;
             }
         }
