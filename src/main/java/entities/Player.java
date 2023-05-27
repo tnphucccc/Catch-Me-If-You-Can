@@ -105,6 +105,7 @@ public class Player extends Entity {
     }
 
     public void teleport (int index){
+
         if (index != -1 && !Game.PortInList[index].cd) {
             //choose a random port
             int portIndex = (int) Math.floor(Math.random() * 10);
