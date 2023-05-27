@@ -2,15 +2,13 @@ package entities;
 
 import core.Collision;
 import graphics.BufferedImageLoader;
+import graphics.Game;
 import graphics.SpriteSheet;
 import variables.Constant;
-import graphics.Game;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import javax.imageio.ImageIO;
-import java.util.Objects;
 
 public class Boss extends Entity{
     public boolean col;
