@@ -1,7 +1,11 @@
 package entities;
 
+import graphics.BufferedImageLoader;
+import graphics.SpriteSheet;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public abstract class Entity {
@@ -14,6 +18,7 @@ public abstract class Entity {
     public int solidAreaDefaultX, solidAreaDefaultY;
     public BufferedImage[] up = new BufferedImage[4], down = new BufferedImage[4],
             left = new BufferedImage[4], right = new BufferedImage[4];
+    public BufferedImageLoader loader = new BufferedImageLoader();
 
 
     public abstract void update();
@@ -55,6 +60,16 @@ public abstract class Entity {
             }
         }
         return null;
+    }
+
+    public void getSprite(String path) throws IOException {
+        SpriteSheet ss = new SpriteSheet(loader.loadImage(path));
+        for (int i = 0; i < 4; i++) {
+            up[i] = ss.crop(16 * i, 0, 16, 24);
+            down[i] = ss.crop(16 * i, 24, 16, 24);
+            left[i] = ss.crop(16 * i, 48, 16, 24);
+            right[i] = ss.crop(16 * i, 72, 16, 24);
+        }
     }
 
     //getter && setter for x y but in tile

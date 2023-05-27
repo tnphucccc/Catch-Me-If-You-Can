@@ -2,9 +2,7 @@ package entities;
 
 import core.Collision;
 import core.KeyHandler;
-import graphics.BufferedImageLoader;
 import graphics.Game;
-import graphics.SpriteSheet;
 import graphics.Window;
 import variables.Constant;
 
@@ -15,7 +13,6 @@ import java.io.IOException;
 public class Player extends Entity {
     public Collision collisionCheck = new Collision();
     KeyHandler keyH = Window.getKeyH();
-    BufferedImageLoader loader = new BufferedImageLoader();
 
     public Player() {
         this.name = "player";
@@ -49,13 +46,7 @@ public class Player extends Entity {
 
     public void getPlayerImage() {
         try {
-            SpriteSheet ss = new SpriteSheet(loader.loadImage("/Sprite/PlayerBlackWalk.png"));
-            for (int i = 0; i < 4; i++) {
-                up[i] = ss.crop(16 * i, 0, 16, 24);
-                down[i] = ss.crop(16 * i, 24, 16, 24);
-                left[i] = ss.crop(16 * i, 48, 16, 24);
-                right[i] = ss.crop(16 * i, 72, 16, 24);
-            }
+            getSprite("/Sprite/Black.png");
         } catch (IOException e) {
             e.printStackTrace();
         }

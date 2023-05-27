@@ -1,9 +1,7 @@
 package entities;
 
 import core.Collision;
-import graphics.BufferedImageLoader;
 import graphics.Game;
-import graphics.SpriteSheet;
 import variables.Constant;
 
 import java.awt.*;
@@ -14,7 +12,6 @@ public class Boss extends Entity {
     public boolean collision, onPath = true;
     public Collision collisionCheck = new Collision();
     public PathFinding pFind = new PathFinding();
-    BufferedImageLoader loader = new BufferedImageLoader();
 
     public Boss() {
         this.name = "boss";
@@ -35,18 +32,12 @@ public class Boss extends Entity {
         x = Constant.TILE_SIZE * 8;
         y = Constant.TILE_SIZE * 7;
         collision = true;
-        speed = 2;
+        speed = 1;
     }
 
     public void getBossImage() {
         try {
-            SpriteSheet ss = new SpriteSheet(loader.loadImage("/Sprite/PlayerWhiteWalk.png"));
-            for (int i = 0; i < 4; i++) {
-                up[i] = ss.crop(16 * i, 0, 16, 24);
-                down[i] = ss.crop(16 * i, 24, 16, 24);
-                left[i] = ss.crop(16 * i, 48, 16, 24);
-                right[i] = ss.crop(16 * i, 72, 16, 24);
-            }
+            getSprite("/Sprite/White.png");
         } catch (IOException e) {
             e.printStackTrace();
         }
