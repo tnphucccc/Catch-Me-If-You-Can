@@ -32,7 +32,7 @@ public class Boss extends Entity {
         x = Constant.TILE_SIZE * 8;
         y = Constant.TILE_SIZE * 7;
         collision = true;
-        speed = 1;
+        speed = 2;
     }
 
     public void getBossImage() {

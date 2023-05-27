@@ -81,6 +81,10 @@ public class Window extends JFrame implements Runnable {
         currentScene.draw(g2d);
     }
 
+    public void close() {
+        isRunning = false;
+    }
+
     @Override
     public void run() {
         double drawInterval = 1000000000.0 / Constant.FPS, delta = 0;

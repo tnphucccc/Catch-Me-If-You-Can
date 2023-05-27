@@ -5,6 +5,7 @@ import core.TileManager;
 import entities.Boss;
 import entities.Player;
 import objects.SuperObject;
+import features.Sound;
 
 import java.awt.*;
 
@@ -14,6 +15,7 @@ public class Game extends Scene {
     public static SuperObject[] PortInList = new SuperObject[10];
     static Player player;
     TileManager tileM;
+    static Sound sound = new Sound();
     Boss boss;
     AssetSetter aSetter = new AssetSetter(this);
 
@@ -38,6 +40,9 @@ public class Game extends Scene {
                 port.releaseCD();
             }
         }
+        if (player.state == 0) {
+            GameOver.getInstance().update();
+        }
     }
 
     @Override
@@ -53,9 +58,28 @@ public class Game extends Scene {
         }
         player.draw(g2d);
         boss.draw(g2d);
+        if (player.state == 0) {
+            GameOver.getInstance().draw(g2d); //Draw Game Over Menu
+        }
+    }
+
+    public void playMusic(int i) {
+        sound.setFile(i);
+        sound.play();
+        sound.loop();
+    }
+
+    public static void stopMusic() {
+        sound.stop();
+    }
+
+    public static void playSE(int i) {
+        sound.setFile(i);
+        sound.play();
     }
 
     public void setupGame() {
         aSetter.setObject();
+        playMusic(0);
     }
 }
