@@ -88,19 +88,16 @@ public class PathFinding {
             if (row - 1 >= 0) {
                 openNode(node[col][row - 1]);
             }
-            //Open the Up node
-            if (row - 1 >= 0) {
-                openNode(node[col][row - 1]);
-            }
             //Open the Left node
             if (col - 1 >= 0) {
                 openNode(node[col - 1][row]);
             }
-            //Open the dONW node
+            //Open the Down node
             if (row + 1 < Constant.MAX_SCREEN_ROW) {
                 openNode(node[col][row + 1]);
             }
-            if (col + 1 < Constant.MAX_SCREEN_ROW) {
+            //Open the Right node
+            if (col + 1 < Constant.MAX_SCREEN_COL) {
                 openNode(node[col + 1][row]);
             }
 
