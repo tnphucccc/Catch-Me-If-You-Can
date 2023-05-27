@@ -74,7 +74,7 @@ public class Collision {
             boss.solidArea.width,
             boss.solidArea.height);
             boolean intersects = entitySolidBox.intersects(bossSolidBox);
-            if (intersects&&boss.col) {
+            if (intersects&&boss.collision) {
                 entity.collisionOn = true;
                 entity.state = 0;
                 entity.speed = 0;

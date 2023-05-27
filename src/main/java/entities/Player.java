@@ -70,7 +70,7 @@ public class Player extends Entity {
 
         //Check object collision
         int interactObject = collisionCheck.checkObject(this, true);
-        tele(interactObject);
+        teleport(interactObject);
 
         if ((keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) && state == 1) {
             if (keyH.upPressed) { //Character Movement
@@ -104,7 +104,8 @@ public class Player extends Entity {
         }
     }
 
-    public void tele (int index){
+    public void teleport (int index){
+
         if (index != -1 && !Game.PortInList[index].cd) {
             //choose a random port
             int portIndex = (int) Math.floor(Math.random() * 10);
