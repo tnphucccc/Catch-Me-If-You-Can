@@ -4,8 +4,8 @@ import core.AssetSetter;
 import core.TileManager;
 import entities.Boss;
 import entities.Player;
-import objects.SuperObject;
 import features.Sound;
+import objects.SuperObject;
 
 import java.awt.*;
 
@@ -14,8 +14,8 @@ public class Game extends Scene {
     public static SuperObject[] PortList = new SuperObject[10];
     public static SuperObject[] PortInList = new SuperObject[10];
     static Player player;
-    TileManager tileM;
     static Sound sound = new Sound();
+    TileManager tileM;
     Boss boss;
     AssetSetter aSetter = new AssetSetter(this);
 
@@ -28,6 +28,15 @@ public class Game extends Scene {
 
     public static Player getPlayer() {
         return player;
+    }
+
+    public static void stopMusic() {
+        sound.stop();
+    }
+
+    public static void playSE(int i) {
+        sound.setFile(i);
+        sound.play();
     }
 
     @Override
@@ -67,15 +76,6 @@ public class Game extends Scene {
         sound.setFile(i);
         sound.play();
         sound.loop();
-    }
-
-    public static void stopMusic() {
-        sound.stop();
-    }
-
-    public static void playSE(int i) {
-        sound.setFile(i);
-        sound.play();
     }
 
     public void setupGame() {

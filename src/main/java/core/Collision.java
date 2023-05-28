@@ -1,8 +1,8 @@
 package core;
 
+import config.Game;
 import entities.Boss;
 import entities.Entity;
-import config.Game;
 import variables.Constant;
 
 import java.awt.*;

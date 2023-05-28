@@ -10,21 +10,11 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 public class GameOver {
+    public static GameOver instance = null;
     BufferedImage gameOver, playAgainPressed, exitPressed;
     BufferedImage currentGameOver;
-
     Rectangle playAgainRect, exitRect;
-
     MouseHandler mouseH = Window.getMouseH();
-
-    public static GameOver instance = null;
-
-    public static GameOver getInstance(){
-        if (GameOver.instance == null){
-            GameOver.instance = new GameOver();
-        }
-        return GameOver.instance;
-    }
 
     public GameOver() {
         try {
@@ -41,6 +31,12 @@ public class GameOver {
         Game.playSE(1);
     }
 
+    public static GameOver getInstance() {
+        if (GameOver.instance == null) {
+            GameOver.instance = new GameOver();
+        }
+        return GameOver.instance;
+    }
 
     public void update() {
         if (mouseH.checkInteractWithRect(mouseH, playAgainRect)) {

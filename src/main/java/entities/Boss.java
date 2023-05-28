@@ -1,8 +1,8 @@
 package entities;
 
+import config.Game;
 import core.Collision;
 import features.PathFinding;
-import config.Game;
 import variables.Constant;
 
 import java.awt.*;

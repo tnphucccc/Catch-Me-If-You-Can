@@ -1,9 +1,9 @@
 package entities;
 
-import core.Collision;
-import core.KeyHandler;
 import config.Game;
 import config.Window;
+import core.Collision;
+import core.KeyHandler;
 import variables.Constant;
 
 import java.awt.*;
