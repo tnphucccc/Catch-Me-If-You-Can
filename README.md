@@ -16,6 +16,31 @@
 4. [Features](#Features)
 5. [Challenges](#Challenges)
 
+<!-- <details>
+<summary>Table of Contents</summary>
+<ol>
+    <li>
+        <a href="#Introduction">Introduction</a>
+        <ul>
+            <li><a href="#Team-Members">Team Members</a></li>
+            <li><a href="#How-to-Run">How to Run</a></li>
+            <li><a href="#Task-Allocation">Task Allocation</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#Game">Game</a>
+        <ul>
+            <li><a href="#About-the-Game">About the Game</a></li>
+            <li><a href="#Controls">Controls</a></li>
+            <li><a href="#Items">Items</a></li>
+        </ul>
+    </li>
+    <li><a href="#UML-diagram">UML-diagram</a></li>
+    <li><a href="#Features">Features</a></li>
+    <li><a href="#Challenges">Challenges</a></li>
+</ol>
+</details> -->
+
 <!-- ABOUT THE PROJECT -->
 ## Introduction <a name="Introduction"></a>
 <div style = "text-align: justify">
