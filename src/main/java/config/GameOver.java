@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-public class GameOver extends Scene {
+public class GameOver {
     public static GameOver instance = null;
     BufferedImage gameOver, playAgainPressed, exitPressed;
     BufferedImage currentGameOver;
@@ -38,7 +38,6 @@ public class GameOver extends Scene {
         return GameOver.instance;
     }
 
-    @Override
     public void update() {
         if (mouseH.checkInteractWithRect(mouseH, playAgainRect)) {
             currentGameOver = playAgainPressed;
@@ -57,7 +56,6 @@ public class GameOver extends Scene {
         }
     }
 
-    @Override
     public void draw(Graphics g2) {
         g2.setColor(new Color(0, 0, 0, 150));
         g2.fillRect(0, 0, Constant.WIDTH, Constant.HEIGHT);
