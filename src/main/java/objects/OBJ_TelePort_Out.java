@@ -13,7 +13,7 @@ public class OBJ_TelePort_Out extends SuperObject {
         name = "teleport_in";
         collision = false;
         try {
-            image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Objects/TelePort_Out.png")));
+            image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Objects/Portal_Out.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }

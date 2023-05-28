@@ -14,8 +14,8 @@ public class OBJ_TelePort_In extends SuperObject {
         this.collision = true;
         name = "teleport_in";
         try {
-            image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Objects/TelePort_In.png")));
-            imageCD = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Objects/TelePortCooldown.png")));
+            image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Objects/Portal_In.png")));
+            imageCD = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Objects/Portal_CD.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }
