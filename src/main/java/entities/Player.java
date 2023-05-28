@@ -2,8 +2,8 @@ package entities;
 
 import core.Collision;
 import core.KeyHandler;
-import graphics.Game;
-import graphics.Window;
+import config.Game;
+import config.Window;
 import variables.Constant;
 
 import java.awt.*;

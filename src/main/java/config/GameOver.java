@@ -1,4 +1,4 @@
-package graphics;
+package config;
 
 import core.MouseHandler;
 import core.TileManager;

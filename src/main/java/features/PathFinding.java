@@ -1,4 +1,4 @@
-package entities;
+package features;
 
 import core.TileManager;
 import variables.Constant;

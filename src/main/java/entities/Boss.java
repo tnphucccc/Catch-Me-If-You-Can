@@ -1,7 +1,8 @@
 package entities;
 
 import core.Collision;
-import graphics.Game;
+import features.PathFinding;
+import config.Game;
 import variables.Constant;
 
 import java.awt.*;
@@ -9,7 +10,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class Boss extends Entity {
-    public boolean collision, onPath = true;
+    public boolean collision;
     public Collision collisionCheck = new Collision();
     public PathFinding pFind = new PathFinding();
 
@@ -47,7 +48,6 @@ public class Boss extends Entity {
         collisionOn = false;
         collisionCheck.checkTile(this);
         collisionCheck.checkMob(Game.getPlayer(), this);
-//        collisionCheck.checkObject(this, false);
     }
 
     @Override
@@ -146,18 +146,5 @@ public class Boss extends Entity {
     public void draw(Graphics2D g2) {
         BufferedImage img = getEntityImage();
         g2.drawImage(img, this.x, this.y, Constant.TILE_SIZE, Constant.TILE_SIZE, null);
-
-        if (onPath) {
-            g2.setColor(new Color(255, 0, 0, 50));
-
-            for (int i = 0; i < pFind.pathList.size(); i++) {
-                int worldX = pFind.pathList.get(i).col * Constant.TILE_SIZE;
-                int worldY = pFind.pathList.get(i).row * Constant.TILE_SIZE;
-
-                g2.fillRect(worldX, worldY, Constant.TILE_SIZE, Constant.TILE_SIZE);
-            }
-
-        }
     }
-
 }

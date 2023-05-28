@@ -2,7 +2,7 @@ package core;
 
 import entities.Boss;
 import entities.Entity;
-import graphics.Game;
+import config.Game;
 import variables.Constant;
 
 import java.awt.*;

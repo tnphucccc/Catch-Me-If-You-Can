@@ -1,4 +1,4 @@
-import graphics.Window;
+import config.Window;
 
 public class App {
     public static void main(String[] args) {

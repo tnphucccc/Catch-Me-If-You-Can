@@ -1,4 +1,4 @@
-package entities;
+package features;
 
 public class Node {
     public int col;

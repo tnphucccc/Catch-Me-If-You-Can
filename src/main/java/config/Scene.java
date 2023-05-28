@@ -1,4 +1,4 @@
-package graphics;
+package config;
 
 public abstract class Scene {
     public abstract void update();

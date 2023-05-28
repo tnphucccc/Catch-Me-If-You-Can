@@ -1,4 +1,4 @@
-package graphics;
+package config;
 
 import core.AssetSetter;
 import core.TileManager;

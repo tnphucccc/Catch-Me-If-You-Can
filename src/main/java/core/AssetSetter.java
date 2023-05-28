@@ -1,6 +1,6 @@
 package core;
 
-import graphics.Game;
+import config.Game;
 import objects.OBJ_TelePort_In;
 import objects.OBJ_TelePort_Out;
 
