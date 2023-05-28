@@ -16,33 +16,8 @@
 4. [Features](#Features)
 5. [Challenges](#Challenges)
 
-<!-- <details>
-<summary>Table of Contents</summary>
-<ol>
-    <li>
-        <a href="#Introduction">Introduction</a>
-        <ul>
-            <li><a href="#Team-Members">Team Members</a></li>
-            <li><a href="#How-to-Run">How to Run</a></li>
-            <li><a href="#Task-Allocation">Task Allocation</a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="#Game">Game</a>
-        <ul>
-            <li><a href="#About-the-Game">About the Game</a></li>
-            <li><a href="#Controls">Controls</a></li>
-            <li><a href="#Items">Items</a></li>
-        </ul>
-    </li>
-    <li><a href="#UML-diagram">UML-diagram</a></li>
-    <li><a href="#Features">Features</a></li>
-    <li><a href="#Challenges">Challenges</a></li>
-</ol>
-</details> -->
-
 <!-- ABOUT THE PROJECT -->
-## Introduction <a name="Introduction"/></a>
+## Introduction <a name="Introduction"></a>
 <div style = "text-align: justify">
 </div>
 
@@ -79,7 +54,7 @@
 |   4   |  Vo Tran Khanh Quynh  | ITITIU21024 |  Controls, Debug, Objects   |     25%      |
 
 <!-- GAME -->
-## Game <a name="Game"/></a>
+## Game <a name="Game"></a>
 
 ### About the Game
 <div align="center">
@@ -106,7 +81,7 @@ The player is controlled by 4 arrows key. Players can move around by pressing th
 </div>
 
 <!-- UML-diagram -->
-## UML-diagram <a name="UML-diagram/"></a>
+## UML-diagram <a name="UML-diagram"></a>
 <div>
    <h3>Configuration</h3>
       <div align="center">
@@ -145,11 +120,11 @@ The player is controlled by 4 arrows key. Players can move around by pressing th
 </div>
 
 <!-- FEATURES -->
-## Features <a name="Features"/></a>
+## Features <a name="Features"></a>
 
 
 <!-- CHALLENGES -->
-## Challenges <a name="Challenges"/></a>
+## Challenges <a name="Challenges"></a>
 
 
 <p align="right">(<a href="#top">Back to top</a>)</p>
