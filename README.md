@@ -44,6 +44,8 @@
 <!-- ABOUT THE PROJECT -->
 ## Introduction <a name="Introduction"></a>
 <div style = "text-align: justify">
+Based on the classic tag game that many people played when they were children, this game is a tag game created in Java.
+Our team's purpose is to produce an entertaining game that uses the knowledge that we learnt in the course DSA.
 </div>
 
 ### Team Members
