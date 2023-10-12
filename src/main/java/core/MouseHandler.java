@@ -3,9 +3,8 @@ package core;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
 
-public class MouseHandler extends MouseAdapter implements MouseMotionListener {
+public class MouseHandler extends MouseAdapter {
     public boolean isPressed = false;
     public double x = 0.0, y = 0.0;
 
